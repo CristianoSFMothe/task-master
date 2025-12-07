@@ -1,6 +1,9 @@
+"use client";
+
 import { ArrowRight, Lock, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import banner from "@/app/assets/banner.svg";
 import icon from "@/app/assets/task-manage-icon.svg";
@@ -10,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const Page = () => {
+  const router = useRouter();
+
   return (
     <main className="flex min-h-screen w-full">
       <section
@@ -119,12 +124,15 @@ const Page = () => {
           />
 
           <Button
+            type="button"
+            onClick={() => router.push("/dashboard")}
             className={cn(
-              "font-roboto mt-2 h-12 w-full bg-indigo-700",
-              "text-lg font-bold transition-colors hover:bg-indigo-800",
+              "mt-2 h-12 w-full bg-indigo-700",
+              "font-roboto text-lg font-bold transition-colors hover:bg-indigo-800",
             )}
           >
-            Entrar na plataforma <ArrowRight className="ml-2 h-5 w-5" />
+            Entrar na plataforma
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </form>
 
