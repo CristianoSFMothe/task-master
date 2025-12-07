@@ -7,11 +7,10 @@ import Link from "next/link";
 // Assets
 import banner from "@/app/assets/banner.svg";
 import icon from "@/app/assets/task-manage-icon.svg";
+import { AuthInput } from "@/components/auth-input";
 import SocialButtons from "@/components/social-buttons";
 // Componentes Shadcn UI
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 const Page = () => {
@@ -54,71 +53,29 @@ const Page = () => {
         </div>
 
         <form className="flex flex-col gap-6">
-          {/* CAMPO NOME */}
-          <div className="flex flex-col gap-2">
-            <Label
-              htmlFor="name"
-              className="text-base font-medium text-slate-500"
-            >
-              Nome
-            </Label>
-            <div className="relative">
-              <User className="absolute left-4 top-3.5 h-5 w-5 text-slate-400" />
-              <Input
-                id="name"
-                type="text"
-                placeholder="Seu nome completo"
-                className={cn(
-                  "h-12 border-slate-200 pl-12 text-base",
-                  "placeholder:text-slate-400 focus-visible:ring-indigo-600",
-                )}
-              />
-            </div>
-          </div>
+          <AuthInput
+            id="name"
+            label="Nome completo"
+            type="text"
+            icon={User}
+            placeholder="meu nome completo"
+          />
 
-          {/* CAMPO EMAIL */}
-          <div className="flex flex-col gap-2">
-            <Label
-              htmlFor="email"
-              className="text-base font-medium text-slate-500"
-            >
-              E-mail
-            </Label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-3.5 h-5 w-5 text-slate-400" />
-              <Input
-                id="email"
-                type="email"
-                placeholder="meu@email.com"
-                className={cn(
-                  "h-12 border-slate-200 pl-12 text-base",
-                  "placeholder:text-slate-400 focus-visible:ring-indigo-600",
-                )}
-              />
-            </div>
-          </div>
+          <AuthInput
+            id="email"
+            label="E-mail"
+            type="email"
+            icon={Mail}
+            placeholder="meu@email.com"
+          />
 
-          {/* CAMPO SENHA */}
-          <div className="flex flex-col gap-2">
-            <Label
-              htmlFor="password"
-              className="text-base font-medium text-slate-500"
-            >
-              Senha
-            </Label>
-            <div className="relative">
-              <Lock className="absolute left-4 top-3.5 h-5 w-5 text-slate-400" />
-              <Input
-                id="password"
-                type="password"
-                placeholder="Minha senha secreta"
-                className={cn(
-                  "h-12 border-slate-200 pl-12 text-base",
-                  "placeholder:text-slate-400 focus-visible:ring-indigo-600",
-                )}
-              />
-            </div>
-          </div>
+          <AuthInput
+            id="password"
+            label="Senha"
+            type="password"
+            icon={Lock}
+            placeholder="minha senha secreta"
+          />
 
           {/* BOTÃO CRIAR CONTA */}
           <Button

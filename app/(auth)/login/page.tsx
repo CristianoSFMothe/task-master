@@ -1,14 +1,12 @@
 import { ArrowRight, Lock, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 import banner from "@/app/assets/banner.svg";
 import icon from "@/app/assets/task-manage-icon.svg";
+import { AuthInput } from "@/components/auth-input";
 import SocialButtons from "@/components/social-buttons";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
 const Page = () => {
@@ -104,55 +102,21 @@ const Page = () => {
         </div>
 
         <form className="flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
-            <Label
-              htmlFor="email"
-              className="text-base font-medium text-slate-500"
-            >
-              E-mail
-            </Label>
-            <div className="relative">
-              <Mail className="absolute left-4 top-3.5 h-5 w-5 text-slate-400" />
-              <Input
-                id="email"
-                type="email"
-                placeholder="meu@email.com"
-                className={cn(
-                  "h-12 border-slate-200 pl-12 text-base",
-                  "placeholder:text-slate-400 focus-visible:ring-indigo-600",
-                )}
-              />
-            </div>
-          </div>
+          <AuthInput
+            id="email"
+            label="E-mail"
+            type="email"
+            icon={Mail}
+            placeholder="meu@email.com"
+          />
 
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-between">
-              <Label
-                htmlFor="password"
-                className="text-base font-medium text-slate-500"
-              >
-                Senha
-              </Label>
-              <Link
-                href="#"
-                className="text-sm font-semibold text-indigo-700 hover:underline"
-              >
-                Esqueceu a senha?
-              </Link>
-            </div>
-            <div className="relative">
-              <Lock className="absolute left-4 top-3.5 h-5 w-5 text-slate-400" />
-              <Input
-                id="password"
-                type="password"
-                placeholder="minha senha secreta"
-                className={cn(
-                  "h-12 border-slate-200 bg-slate-50 pl-12 text-base",
-                  "placeholder:text-slate-400 focus-visible:ring-indigo-600",
-                )}
-              />
-            </div>
-          </div>
+          <AuthInput
+            id="password"
+            label="Senha"
+            type="password"
+            icon={Lock}
+            placeholder="minha senha secreta"
+          />
 
           <Button
             className={cn(
