@@ -6,8 +6,8 @@ import Link from "next/link";
 
 // Assets
 import banner from "@/app/assets/banner.svg";
-import icon from "@/app/assets/task-manage-icon.svg";
 import { AuthInput } from "@/components/auth-input";
+import { AuthLogo } from "@/components/auth-logo";
 import SocialButtons from "@/components/social-buttons";
 // Componentes Shadcn UI
 import { Button } from "@/components/ui/button";
@@ -28,20 +28,7 @@ const Page = () => {
       >
         {/* --- CABEÇALHO MOBILE (LOGO) --- */}
         {/* Só aparece em telas menores que LG (lg:hidden) */}
-        <div className="mb-10 flex items-center justify-center gap-3 lg:hidden">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-700 shadow-md">
-            <Image
-              src={icon}
-              width={28}
-              height={28}
-              alt="TaskMaster Icon"
-              quality={100}
-            />
-          </div>
-          <h1 className="font-roboto text-3xl font-bold text-slate-900">
-            TaskMaster
-          </h1>
-        </div>
+        <AuthLogo theme="dark" className="mb-10 justify-center lg:hidden" />
 
         <div className="mb-8 text-center">
           <h1 className="font-roboto whitespace-nowrap text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
@@ -122,19 +109,7 @@ const Page = () => {
           "hidden min-h-screen lg:flex lg:w-1/2 lg:px-12 xl:px-[100px]",
         )}
       >
-        <div className="flex items-center gap-3">
-          <Image
-            src={icon}
-            width={48}
-            height={48}
-            alt="TaskMaster Icon"
-            quality={100}
-            priority
-          />
-          <h1 className="font-roboto text-3xl font-bold lg:text-5xl">
-            TaskMaster
-          </h1>
-        </div>
+        <AuthLogo theme="light" />
 
         <div className="flex h-full w-full flex-col justify-center">
           <div className="mt-8 flex flex-col gap-6">

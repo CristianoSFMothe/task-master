@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import banner from "@/app/assets/banner.svg";
-import icon from "@/app/assets/task-manage-icon.svg";
 import { AuthInput } from "@/components/auth-input";
+import { AuthLogo } from "@/components/auth-logo";
 import SocialButtons from "@/components/social-buttons";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -24,20 +24,7 @@ const Page = () => {
           "xl:[100px] hidden py-12 lg:flex lg:w-1/2 lg:px-12",
         )}
       >
-        <div className="flex items-center gap-3">
-          <Image
-            src={icon}
-            width={48}
-            height={48}
-            alt="Task Manage Icon"
-            priority
-            quality={100}
-          />
-
-          <h1 className="font-roboto text-3xl font-bold lg:text-5xl">
-            TaskMaster
-          </h1>
-        </div>
+        <AuthLogo theme="light" />
 
         <div className="flex h-full w-full flex-col justify-center">
           <div className="mt-8 flex flex-col gap-6">
@@ -77,21 +64,7 @@ const Page = () => {
           "px-6 sm:px-12 lg:w-1/2 lg:px-16 xl:px-[100px]",
         )}
       >
-        <div className="mb-10 flex items-center justify-center gap-3 lg:hidden">
-          {/* Fundo roxo para o ícone branco aparecer bem no fundo branco */}
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-700 shadow-md">
-            <Image
-              src={icon}
-              width={28}
-              height={28}
-              alt="TaskMaster Icon"
-              quality={100}
-            />
-          </div>
-          <h1 className="font-roboto text-3xl font-bold text-slate-900">
-            TaskMaster
-          </h1>
-        </div>
+        <AuthLogo theme="dark" className="mb-10 justify-center lg:hidden" />
         <div className="mb-8 text-center">
           <h1
             className={cn(
