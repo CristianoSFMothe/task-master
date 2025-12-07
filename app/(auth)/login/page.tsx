@@ -134,7 +134,12 @@ const Page = () => {
             </div>
           </div>
 
-          <Button className="mt-2 h-12 w-full bg-indigo-700 text-lg font-bold hover:bg-indigo-800">
+          <Button
+            className={cn(
+              "font-roboto mt-2 h-12 w-full bg-indigo-700",
+              "text-lg font-bold transition-colors hover:bg-indigo-800",
+            )}
+          >
             Entrar na plataforma <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </form>
