@@ -1,7 +1,18 @@
-import { Layout, Plus, Search, User } from "lucide-react";
+import {
+  Circle,
+  Clock,
+  Layout,
+  LayoutDashboard,
+  PauseCircle,
+  Plus,
+  Search,
+  StopCircle,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 
 import icon from "@/app/assets/task-manage-icon.svg";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -79,6 +90,67 @@ function Dashboard() {
         <h4 className="font-inter mt-10 text-2xl font-light text-slate-600">
           Gerencie o progresso das suas tarefas.
         </h4>
+
+        <div className="mt-8 flex gap-4">
+          <Button className="bg-[#483DCA] hover:bg-[#483DCA]/90">
+            <LayoutDashboard />
+            Atividade [Visão Geral]
+            <Badge
+              className={cn(
+                "h-5 min-w-5 items-center justify-center rounded-full",
+                "bg-[#448AFF] px-1 font-mono tabular-nums",
+              )}
+            >
+              8
+            </Badge>
+          </Button>
+          <Button variant="outline">
+            {" "}
+            <Circle />A Fazer
+            <Badge
+              className={cn(
+                "h-5 min-w-5 items-center justify-center rounded-full",
+                "bg-[#CECECE] px-1 font-mono tabular-nums text-black",
+              )}
+            >
+              8
+            </Badge>
+          </Button>
+          <Button variant="outline">
+            {" "}
+            <Clock /> Em Andamento
+            <Badge
+              className={cn(
+                "h-5 min-w-5 items-center justify-center rounded-full",
+                "bg-[#CECECE] px-1 font-mono tabular-nums text-black",
+              )}
+            >
+              8
+            </Badge>
+          </Button>
+          <Button variant="outline">
+            <PauseCircle /> Pausadas
+            <Badge
+              className={cn(
+                "h-5 min-w-5 items-center justify-center rounded-full",
+                "bg-[#CECECE] px-1 font-mono tabular-nums text-black",
+              )}
+            >
+              8
+            </Badge>
+          </Button>
+          <Button variant="outline">
+            <StopCircle /> Concluídas
+            <Badge
+              className={cn(
+                "h-5 min-w-5 items-center justify-center rounded-full",
+                "bg-[#CECECE] px-1 font-mono tabular-nums text-black",
+              )}
+            >
+              8
+            </Badge>
+          </Button>
+        </div>
       </section>
     </main>
   );
