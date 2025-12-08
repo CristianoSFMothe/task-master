@@ -1,8 +1,9 @@
-import { Layout, User } from "lucide-react";
+import { Layout, Plus, Search, User } from "lucide-react";
 import Image from "next/image";
 
 import icon from "@/app/assets/task-manage-icon.svg";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
 function Dashboard() {
@@ -50,8 +51,34 @@ function Dashboard() {
           </Button>
         </div>
       </aside>
-      <section className="h-full min-h-screen w-full bg-gray-300 px-6 py-8">
-        <h1>Lateral direita</h1>
+
+      <section className="h-full min-h-screen w-full bg-gray-300 px-6 py-8 text-slate-900">
+        <header className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="font-roboto text-4xl font-bold text-slate-900">
+              Visão Geral
+            </h1>
+          </div>
+
+          <nav className="flex items-center gap-4">
+            <div className="relative w-72">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+              <Input
+                placeholder="Buscar tarefas..."
+                className="h-10 w-full border-slate-300 bg-white pl-10 focus-visible:ring-indigo-600"
+              />
+            </div>
+
+            <Button className="h-10 bg-[#483DCA] px-6 font-semibold hover:bg-[#483DCA]/90">
+              <Plus className="mr-2 h-5 w-5" />
+              Nova Tarefa
+            </Button>
+          </nav>
+        </header>
+
+        <h4 className="font-inter mt-10 text-2xl font-light text-slate-600">
+          Gerencie o progresso das suas tarefas.
+        </h4>
       </section>
     </main>
   );
