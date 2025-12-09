@@ -1,8 +1,10 @@
 import {
+  AlertTriangle,
   Circle,
   Clock,
   Layout,
   LayoutDashboard,
+  MoreVertical,
   PauseCircle,
   Plus,
   Search,
@@ -14,6 +16,7 @@ import Image from "next/image";
 import icon from "@/app/assets/task-manage-icon.svg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
@@ -104,6 +107,7 @@ function Dashboard() {
               8
             </Badge>
           </Button>
+
           <Button variant="outline">
             {" "}
             <Circle />A Fazer
@@ -116,6 +120,7 @@ function Dashboard() {
               8
             </Badge>
           </Button>
+
           <Button variant="outline">
             {" "}
             <Clock /> Em Andamento
@@ -128,6 +133,7 @@ function Dashboard() {
               8
             </Badge>
           </Button>
+
           <Button variant="outline">
             <PauseCircle /> Pausadas
             <Badge
@@ -139,6 +145,7 @@ function Dashboard() {
               8
             </Badge>
           </Button>
+
           <Button variant="outline">
             <StopCircle /> Concluídas
             <Badge
@@ -150,6 +157,279 @@ function Dashboard() {
               8
             </Badge>
           </Button>
+        </div>
+
+        <div className="mt-8 grid w-full grid-cols-3 gap-4">
+          <Card
+            className={cn(
+              "p-5 shadow-sm",
+              "transition-shadow duration-200 hover:shadow-md",
+            )}
+          >
+            <div className="mb-3 flex items-start justify-between">
+              <Badge
+                className={cn(
+                  "rounded border-none bg-[#EFEFEF]",
+                  "px-2 py-1 text-[10px] font-bold uppercase",
+                  "tracking-wider text-[#7A7A7A] hover:bg-[#EFEFEF]",
+                )}
+              >
+                projeto
+              </Badge>
+              <Button
+                variant="outline"
+                className="border-none text-gray-400 transition-colors hover:text-gray-600"
+              >
+                <MoreVertical size={18} />
+              </Button>
+            </div>
+
+            <CardTitle className="mb-2 text-base font-bold leading-tight text-gray-900">
+              Integração com Gateway de Pagamento
+            </CardTitle>
+
+            <CardDescription className="mb-6 text-xs font-medium leading-relaxed text-gray-500">
+              Implementar Stripe para processamento de cartões de crédito na
+              tela de checkout.
+            </CardDescription>
+
+            <div className="mt-auto flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#E0E0E0] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#5A5A5A] hover:bg-[#E0E0E0]",
+                  )}
+                >
+                  <Clock size={12} className="stroke-[2.5px] text-blue-600" />
+                  Em Andamento
+                </Badge>
+
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#FFEDF2] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#FF4444] hover:bg-[#FFEDF2]",
+                  )}
+                >
+                  <AlertTriangle
+                    size={12}
+                    className="stroke-[2.5px] text-[#FF4444]"
+                  />
+                  Crítica
+                </Badge>
+              </div>
+
+              <span className="whitespace-nowrap text-xs font-bold text-gray-800">
+                24 de mar.
+              </span>
+            </div>
+          </Card>
+
+          <Card
+            className={cn(
+              "p-5 shadow-sm",
+              "transition-shadow duration-200 hover:shadow-md",
+            )}
+          >
+            <div className="mb-3 flex items-start justify-between">
+              <Badge
+                className={cn(
+                  "rounded border-none bg-[#EFEFEF]",
+                  "px-2 py-1 text-[10px] font-bold uppercase",
+                  "tracking-wider text-[#7A7A7A] hover:bg-[#EFEFEF]",
+                )}
+              >
+                projeto
+              </Badge>
+              <Button
+                variant="outline"
+                className="border-none text-gray-400 transition-colors hover:text-gray-600"
+              >
+                <MoreVertical size={18} />
+              </Button>
+            </div>
+
+            <CardTitle className="mb-2 text-base font-bold leading-tight text-gray-900">
+              Integração com Gateway de Pagamento
+            </CardTitle>
+
+            <CardDescription className="mb-6 text-xs font-medium leading-relaxed text-gray-500">
+              Implementar Stripe para processamento de cartões de crédito na
+              tela de checkout.
+            </CardDescription>
+
+            <div className="mt-auto flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#E0E0E0] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#5A5A5A] hover:bg-[#E0E0E0]",
+                  )}
+                >
+                  <Clock size={12} className="stroke-[2.5px] text-blue-600" />
+                  Em Andamento
+                </Badge>
+
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#FFEDF2] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#FF4444] hover:bg-[#FFEDF2]",
+                  )}
+                >
+                  <AlertTriangle
+                    size={12}
+                    className="stroke-[2.5px] text-[#FF4444]"
+                  />
+                  Crítica
+                </Badge>
+              </div>
+
+              <span className="whitespace-nowrap text-xs font-bold text-gray-800">
+                24 de mar.
+              </span>
+            </div>
+          </Card>
+
+          <Card
+            className={cn(
+              "p-5 shadow-sm",
+              "transition-shadow duration-200 hover:shadow-md",
+            )}
+          >
+            <div className="mb-3 flex items-start justify-between">
+              <Badge
+                className={cn(
+                  "rounded border-none bg-[#EFEFEF]",
+                  "px-2 py-1 text-[10px] font-bold uppercase",
+                  "tracking-wider text-[#7A7A7A] hover:bg-[#EFEFEF]",
+                )}
+              >
+                projeto
+              </Badge>
+              <Button
+                variant="outline"
+                className="border-none text-gray-400 transition-colors hover:text-gray-600"
+              >
+                <MoreVertical size={18} />
+              </Button>
+            </div>
+
+            <CardTitle className="mb-2 text-base font-bold leading-tight text-gray-900">
+              Integração com Gateway de Pagamento
+            </CardTitle>
+
+            <CardDescription className="mb-6 text-xs font-medium leading-relaxed text-gray-500">
+              Implementar Stripe para processamento de cartões de crédito na
+              tela de checkout.
+            </CardDescription>
+
+            <div className="mt-auto flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#E0E0E0] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#5A5A5A] hover:bg-[#E0E0E0]",
+                  )}
+                >
+                  <Clock size={12} className="stroke-[2.5px] text-blue-600" />
+                  Em Andamento
+                </Badge>
+
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#FFEDF2] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#FF4444] hover:bg-[#FFEDF2]",
+                  )}
+                >
+                  <AlertTriangle
+                    size={12}
+                    className="stroke-[2.5px] text-[#FF4444]"
+                  />
+                  Crítica
+                </Badge>
+              </div>
+
+              <span className="whitespace-nowrap text-xs font-bold text-gray-800">
+                24 de mar.
+              </span>
+            </div>
+          </Card>
+
+          <Card
+            className={cn(
+              "p-5 shadow-sm",
+              "transition-shadow duration-200 hover:shadow-md",
+            )}
+          >
+            <div className="mb-3 flex items-start justify-between">
+              <Badge
+                className={cn(
+                  "rounded border-none bg-[#EFEFEF]",
+                  "px-2 py-1 text-[10px] font-bold uppercase",
+                  "tracking-wider text-[#7A7A7A] hover:bg-[#EFEFEF]",
+                )}
+              >
+                incidente
+              </Badge>
+              <Button
+                variant="outline"
+                className="border-none text-gray-400 transition-colors hover:text-gray-600"
+              >
+                <MoreVertical size={18} />
+              </Button>
+            </div>
+
+            <CardTitle className="mb-2 text-base font-bold leading-tight text-gray-900">
+              Lorem ipsum dolor sit amet.
+            </CardTitle>
+
+            <CardDescription className="mb-6 text-xs font-medium leading-relaxed text-gray-500">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores,
+              est!
+            </CardDescription>
+
+            <div className="mt-auto flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2">
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#E0E0E0] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#5A5A5A] hover:bg-[#E0E0E0]",
+                  )}
+                >
+                  <PauseCircle
+                    size={12}
+                    className="stroke-[2.5px] text-blue-600"
+                  />
+                  Em Andamento
+                </Badge>
+
+                <Badge
+                  className={cn(
+                    "gap-1.5 whitespace-nowrap rounded border-none",
+                    "bg-[#a7a4fc] px-2 py-1 text-[10px] font-semibold",
+                    "text-[#4740FF] hover:bg-[#a7a4fc]",
+                  )}
+                >
+                  <AlertTriangle
+                    size={12}
+                    className="stroke-[2.5px] text-[#4740FF]"
+                  />
+                  Crítica
+                </Badge>
+              </div>
+
+              <span className="whitespace-nowrap text-xs font-bold text-gray-800">
+                24 de mar.
+              </span>
+            </div>
+          </Card>
         </div>
       </section>
     </main>
