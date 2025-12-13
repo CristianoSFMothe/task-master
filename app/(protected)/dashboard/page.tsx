@@ -4,19 +4,16 @@ import {
   Layout,
   MoreVertical,
   PauseCircle,
-  Search,
   User,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 
-import DialogDashboard from "./components/dialog-dashboard";
-import DropdownMenuDashboard from "./components/dropdown-menu-dashboard";
 import Filters from "./components/filters";
+import DashboardHeader from "./components/header";
 import Logo from "./components/logo";
 
 function Dashboard() {
@@ -46,34 +43,7 @@ function Dashboard() {
 
       {/* CONTEÚDO PRINCIPAL */}
       <section className="flex-1 overflow-auto px-4 py-6 text-slate-900 md:px-6 md:py-8">
-        <header className="mb-8 flex flex-col gap-6">
-          {/* HEADER MOBILE */}
-          <div className="flex w-full items-center justify-between lg:hidden">
-            <Logo theme="light" />
-            <DropdownMenuDashboard buttonClassName="-mr-2" />
-          </div>
-
-          {/* TÍTULO + AÇÕES */}
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h1 className="font-roboto text-3xl font-bold md:text-4xl">
-              Visão Geral
-            </h1>
-
-            <nav className="flex w-full flex-col gap-3 sm:flex-row sm:items-center md:w-auto md:justify-end">
-              {/* BUSCA */}
-              <div className="relative w-full sm:flex-1 md:max-w-md">
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-                <Input
-                  placeholder="Buscar tarefas..."
-                  className="h-10 w-full border-slate-300 bg-white pl-10 focus-visible:ring-indigo-600"
-                />
-              </div>
-
-              {/* NOVA TAREFA */}
-              <DialogDashboard />
-            </nav>
-          </div>
-        </header>
+        <DashboardHeader />
 
         <h4 className="mt-6 text-xl font-light text-slate-600 md:mt-10 md:text-2xl">
           Gerencie o progresso das suas tarefas.
