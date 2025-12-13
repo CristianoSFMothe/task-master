@@ -1,3 +1,5 @@
+"use client";
+
 import { DialogClose } from "@radix-ui/react-dialog";
 import {
   AlertTriangle,
@@ -111,7 +113,10 @@ function Dashboard() {
                   Nova Tarefa
                 </Button>
               </DialogTrigger>
-              <DialogContent className="overflow-hidden rounded-xl bg-white p-0 sm:max-w-[600px]">
+              <DialogContent
+                className="overflow-hidden rounded-xl bg-white p-0 sm:max-w-[600px] [&>button]:hidden"
+                onInteractOutside={(e) => e.preventDefault()}
+              >
                 <DialogHeader className="px-6 pb-2 pt-6">
                   <DialogTitle className="text-xl font-bold">
                     Nova Tarefa
