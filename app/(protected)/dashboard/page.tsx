@@ -17,9 +17,7 @@ import {
   StopCircle,
   User,
 } from "lucide-react";
-import Image from "next/image";
 
-import icon from "@/app/assets/task-manage-icon.svg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
@@ -51,26 +49,14 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
+import Logo from "./components/logo";
+
 function Dashboard() {
   return (
     <main className="flex min-h-screen w-full bg-[#F4F6F8]">
       {/* SIDEBAR - Escondida em Mobile (hidden), Flex em Desktop (lg:flex) */}
       <aside className="hidden w-72 flex-col bg-[#0F172A] px-6 py-8 text-white lg:flex">
-        <div className="mb-10 flex items-center gap-3">
-          <Image
-            src={icon}
-            width={32}
-            height={32}
-            alt="TaskMaster Icon"
-            quality={100}
-            priority
-            unoptimized // Ajuda com SVGs locais
-            className="h-8 w-8 object-contain" // Mantém proporção e tamanho
-          />
-          <h1 className="font-roboto text-2xl font-bold tracking-tight text-white">
-            TaskMaster
-          </h1>
-        </div>
+        <Logo theme="dark" className="mb-8" />
 
         <div className="flex flex-col gap-3">
           <Button
@@ -104,28 +90,7 @@ function Dashboard() {
       >
         <header className="mb-8 flex flex-col gap-6">
           <div className="flex w-full items-center justify-between lg:hidden">
-            <div className="flex items-center gap-3">
-              {/* Ícone Original no Mobile */}
-              <div
-                className={cn(
-                  "flex h-12 w-12 items-center justify-center",
-                  "rounded-xl bg-indigo-700 shadow-md",
-                )}
-              >
-                <Image
-                  src={icon}
-                  width={32}
-                  height={32}
-                  alt="TaskMaster Icon"
-                  quality={100}
-                  unoptimized
-                  className="h-8 w-8 object-contain"
-                />
-              </div>
-              <h1 className="font-roboto text-2xl font-bold text-slate-900">
-                TaskMaster
-              </h1>
-            </div>
+            <Logo theme="light" />
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
