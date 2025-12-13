@@ -111,111 +111,152 @@ function Dashboard() {
                   Nova Tarefa
                 </Button>
               </DialogTrigger>
-
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Nova Tarefa</DialogTitle>
-                  <DialogDescription>
+              <DialogContent className="overflow-hidden rounded-xl bg-white p-0 sm:max-w-[600px]">
+                <DialogHeader className="px-6 pb-2 pt-6">
+                  <DialogTitle className="text-xl font-bold">
+                    Nova Tarefa
+                  </DialogTitle>
+                  <DialogDescription className="text-gray-500">
                     Preencha os detalhes para criar uma nova tarefa
                   </DialogDescription>
                 </DialogHeader>
 
-                {/* Título */}
-                <div>
-                  <div>
-                    <Label>Título da Tarefa *</Label>
+                <div className="space-y-4 px-6 py-2">
+                  {/* Título */}
+                  <div className="space-y-1">
+                    <Label htmlFor="title" className="text-sm font-medium">
+                      Título da Tarefa <span className="text-red-500">*</span>
+                    </Label>
+                    <Input
+                      id="title"
+                      placeholder="Ex: Implementar autenticação via Google"
+                      className="border-gray-300"
+                    />
+                  </div>
 
-                    <Input />
+                  {/* Descrição */}
+                  <div className="space-y-1">
+                    <Label
+                      htmlFor="description"
+                      className="text-sm font-medium"
+                    >
+                      Descrição
+                    </Label>
+                    <Textarea
+                      id="description"
+                      placeholder="Descreva os detalhes, critérios de aceita e contexto..."
+                      className="min-h-[100px] resize-none border-gray-300"
+                    />
+                  </div>
 
-                    {/* Descrição */}
-                    <div>
-                      <Label>Descrição</Label>
-                      <Textarea />
+                  {/* Grid Status e Tipo */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <Label className="text-sm font-medium">Status</Label>
+                      <Select defaultValue="todo">
+                        <SelectTrigger className="border-gray-300">
+                          <SelectValue placeholder="Selecione" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="todo">A Fazer</SelectItem>
+                          <SelectItem value="in-progress">
+                            Em Andamento
+                          </SelectItem>
+                          <SelectItem value="done">Concluída</SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
 
-                    {/* Grid Status e Tipo */}
-                    <div>
-                      <div>
-                        <Label>Status</Label>
-                        <Select defaultValue="todo">
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione um status" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="todo">A Fazer</SelectItem>
-                            <SelectItem value="in-progress">
-                              Em Andamento
-                            </SelectItem>
-                            <SelectItem value="done">Concluída</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-
-                      <div>
-                        <Label>Tipo</Label>
-                        <Select defaultValue="service">
-                          <SelectTrigger>
-                            <SelectValue placeholder="Selecione o serviço" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="service">
-                              Requisição de Serviço
-                            </SelectItem>
-                            <SelectItem value="bug">Defeito</SelectItem>
-                            <SelectItem value="feature">
-                              Funcionalidade
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                    </div>
-
-                    {/* Prioridade */}
-                    <div>
-                      <Label>Prioridade</Label>
-                      <div>
-                        <Button>Baixa</Button>
-                        <Button>Média</Button>
-                        <Button>Alta</Button>
-                        <Button>
-                          {" "}
-                          <AlertTriangle />
-                          Crítica
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Datas */}
-                    <div>
-                      <div>
-                        <Label>Data Início</Label>
-                        <div>
-                          <Input placeholder="dd/mm/aaaa" />
-                          <CalendarIcon />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div>
-                      <div>
-                        <Label>Data Fim (Prazo)</Label>
-                        <div>
-                          <Input placeholder="dd/mm/aaaa" />
-                          <CalendarIcon />
-                        </div>
-                      </div>
+                    <div className="space-y-1">
+                      <Label className="text-sm font-medium">Tipo</Label>
+                      <Select defaultValue="service">
+                        <SelectTrigger className="border-gray-300">
+                          <SelectValue placeholder="Selecione" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="service">
+                            Requisição de Serviço
+                          </SelectItem>
+                          <SelectItem value="bug">Defeito</SelectItem>
+                          <SelectItem value="feature">
+                            Funcionalidade
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
                     </div>
                   </div>
 
-                  <DialogFooter>
-                    <DialogClose asChild>
-                      <Button>Cancelar</Button>
-                    </DialogClose>
-                    <Button>
-                      Criar Tarefa <CheckCircle2 />
-                    </Button>
-                  </DialogFooter>
+                  {/* Prioridade */}
+                  <div className="space-y-1">
+                    <Label className="text-sm font-medium">Prioridade</Label>
+                    <div className="grid grid-cols-4 gap-2">
+                      <Button
+                        variant="outline"
+                        className="h-10 border-gray-300 hover:bg-gray-50 hover:text-gray-900"
+                      >
+                        Baixa
+                      </Button>
+                      <Button className="h-10 border border-[#2F54EB] bg-[#A6C5FF] font-semibold text-[#2F54EB] hover:bg-[#A6C5FF]/90">
+                        Média
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="h-10 border-gray-300 hover:bg-gray-50 hover:text-gray-900"
+                      >
+                        Alta
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="flex h-10 gap-2 border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                      >
+                        <AlertTriangle size={16} /> Crítica
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Datas */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <Label className="text-sm font-medium">Data Início</Label>
+                      <div className="relative">
+                        <Input
+                          type="text"
+                          placeholder="dd/mm/aaaa"
+                          className="border-gray-300 pr-10"
+                        />
+                        <CalendarIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      <Label className="text-sm font-medium">
+                        Data Fim (Prazo)
+                      </Label>
+                      <div className="relative">
+                        <Input
+                          type="text"
+                          placeholder="dd/mm/aaaa"
+                          className="border-gray-300 pr-10"
+                        />
+                        <CalendarIcon className="absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+                <DialogFooter className="flex justify-end gap-3 border-t bg-gray-50 px-6 py-4">
+                  <DialogClose asChild>
+                    <Button
+                      variant="outline"
+                      className="h-10 border-gray-300 px-8 text-gray-700"
+                    >
+                      Cancelar
+                    </Button>
+                  </DialogClose>
+                  <Button className="h-10 gap-2 bg-[#483DCA] px-6 hover:bg-[#483DCA]/90">
+                    Criar Tarefa
+                    <CheckCircle2 size={16} />
+                  </Button>
+                </DialogFooter>
               </DialogContent>
             </Dialog>
           </nav>
