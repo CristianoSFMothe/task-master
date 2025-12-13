@@ -1,22 +1,38 @@
-import {
-  AlertTriangle,
-  Clock,
-  Layout,
-  MoreVertical,
-  PauseCircle,
-  User,
-} from "lucide-react";
+import { Layout, User } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 import Filters from "./components/filters";
 import DashboardHeader from "./components/header";
 import Logo from "./components/logo";
+import TaskCard from "./components/task-card";
+import { TaskPriority, TaskStatus } from "./types/task";
 
 function Dashboard() {
+  const tasks = [
+    {
+      id: 1,
+      type: "projeto",
+      title: "Integração com Gateway de Pagamento",
+      description:
+        "Implementar Stripe para processamento de cartões de crédito na tela de checkout.",
+      status: TaskStatus.IN_PROGRESS,
+      priority: TaskPriority.CRITICAL,
+      date: "24 Mar",
+    },
+    {
+      id: 2,
+      type: "incidente",
+      title: "Correção de bug no login",
+      description:
+        "Usuários relatam erro 500 ao tentar logar com provedor Google.",
+      status: TaskStatus.PAUSED,
+      priority: TaskPriority.HIGH,
+      date: "24 Mar",
+    },
+  ];
+
   return (
     <main className="flex min-h-screen w-full bg-[#F4F6F8]">
       {/* SIDEBAR */}
@@ -25,7 +41,7 @@ function Dashboard() {
 
         <div className="flex flex-col gap-3">
           <Button className="flex w-full items-center justify-start gap-2 bg-[#483DCA] text-lg hover:bg-[#483DCA]/90">
-            <Layout className="mr-2" size={24} />
+            <Layout size={24} />
             Dashboard
           </Button>
 
@@ -35,7 +51,7 @@ function Dashboard() {
               "bg-transparent text-lg text-slate-300 hover:bg-slate-800 hover:text-white",
             )}
           >
-            <User className="mr-2" size={24} />
+            <User size={24} />
             Perfil
           </Button>
         </div>
@@ -54,91 +70,17 @@ function Dashboard() {
 
         {/* GRID DE CARDS */}
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {/* CARD 1 */}
-          <Card className="flex flex-col p-5 shadow-sm transition-shadow hover:shadow-md">
-            <div className="mb-3 flex items-start justify-between">
-              <Badge className="bg-[#EFEFEF] px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-[#7A7A7A]">
-                projeto
-              </Badge>
-              <Button
-                variant="outline"
-                className="border-none p-0 text-gray-400"
-              >
-                <MoreVertical size={18} />
-              </Button>
-            </div>
-
-            <CardTitle className="mb-2 text-base font-bold">
-              Integração com Gateway de Pagamento
-            </CardTitle>
-
-            <CardDescription className="mb-6 text-xs font-medium text-gray-500">
-              Implementar Stripe para processamento de cartões de crédito na
-              tela de checkout.
-            </CardDescription>
-
-            <div className="mt-auto flex items-center justify-between">
-              <div className="flex gap-2">
-                <Badge className="bg-[#E0E0E0] px-2 py-1 text-[10px] font-semibold text-[#5A5A5A]">
-                  <Clock size={12} className="mr-1 inline text-blue-600" />
-                  Em Andamento
-                </Badge>
-
-                <Badge className="bg-[#FFEDF2] px-2 py-1 text-[10px] font-semibold text-[#FF4444]">
-                  <AlertTriangle size={12} className="mr-1 inline" />
-                  Crítica
-                </Badge>
-              </div>
-
-              <span className="text-xs font-bold text-gray-800">
-                24 de mar.
-              </span>
-            </div>
-          </Card>
-
-          {/* CARD 2 */}
-          <Card className="flex flex-col p-5 shadow-sm transition-shadow hover:shadow-md">
-            <div className="mb-3 flex items-start justify-between">
-              <Badge className="bg-[#EFEFEF] px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-[#7A7A7A]">
-                incidente
-              </Badge>
-              <Button
-                variant="outline"
-                className="border-none p-0 text-gray-400"
-              >
-                <MoreVertical size={18} />
-              </Button>
-            </div>
-
-            <CardTitle className="mb-2 text-base font-bold">
-              Correção de bug no login
-            </CardTitle>
-
-            <CardDescription className="mb-6 text-xs font-medium text-gray-500">
-              Usuários relatam erro 500 ao tentar logar com provedor Google.
-            </CardDescription>
-
-            <div className="mt-auto flex items-center justify-between">
-              <div className="flex gap-2">
-                <Badge className="bg-[#E0E0E0] px-2 py-1 text-[10px] font-semibold text-[#5A5A5A]">
-                  <PauseCircle
-                    size={12}
-                    className="mr-1 inline text-blue-600"
-                  />
-                  Em Andamento
-                </Badge>
-
-                <Badge className="bg-[#a7a4fc] px-2 py-1 text-[10px] font-semibold text-[#4740FF]">
-                  <AlertTriangle size={12} className="mr-1 inline" />
-                  Alta
-                </Badge>
-              </div>
-
-              <span className="text-xs font-bold text-gray-800">
-                24 de mar.
-              </span>
-            </div>
-          </Card>
+          {tasks.map((task) => (
+            <TaskCard
+              key={task.id}
+              type={task.type}
+              title={task.title}
+              description={task.description}
+              status={task.status}
+              priority={task.priority}
+              date={task.date}
+            />
+          ))}
         </div>
       </section>
     </main>
