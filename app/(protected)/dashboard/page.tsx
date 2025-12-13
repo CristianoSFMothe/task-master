@@ -1,5 +1,8 @@
+import { DialogClose } from "@radix-ui/react-dialog";
 import {
   AlertTriangle,
+  CalendarIcon,
+  CheckCircle2,
   Circle,
   Clock,
   Layout,
@@ -17,7 +20,25 @@ import icon from "@/app/assets/task-manage-icon.svg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 
 function Dashboard() {
@@ -83,10 +104,120 @@ function Dashboard() {
               />
             </div>
 
-            <Button className="h-10 bg-[#483DCA] px-6 font-semibold hover:bg-[#483DCA]/90">
-              <Plus className="mr-2 h-5 w-5" />
-              Nova Tarefa
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="h-10 bg-[#483DCA] px-6 font-semibold hover:bg-[#483DCA]/90">
+                  <Plus className="mr-2 h-5 w-5" />
+                  Nova Tarefa
+                </Button>
+              </DialogTrigger>
+
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Nova Tarefa</DialogTitle>
+                  <DialogDescription>
+                    Preencha os detalhes para criar uma nova tarefa
+                  </DialogDescription>
+                </DialogHeader>
+
+                {/* Título */}
+                <div>
+                  <div>
+                    <Label>Título da Tarefa *</Label>
+
+                    <Input />
+
+                    {/* Descrição */}
+                    <div>
+                      <Label>Descrição</Label>
+                      <Textarea />
+                    </div>
+
+                    {/* Grid Status e Tipo */}
+                    <div>
+                      <div>
+                        <Label>Status</Label>
+                        <Select defaultValue="todo">
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecione um status" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="todo">A Fazer</SelectItem>
+                            <SelectItem value="in-progress">
+                              Em Andamento
+                            </SelectItem>
+                            <SelectItem value="done">Concluída</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+
+                      <div>
+                        <Label>Tipo</Label>
+                        <Select defaultValue="service">
+                          <SelectTrigger>
+                            <SelectValue placeholder="Selecione o serviço" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="service">
+                              Requisição de Serviço
+                            </SelectItem>
+                            <SelectItem value="bug">Defeito</SelectItem>
+                            <SelectItem value="feature">
+                              Funcionalidade
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+
+                    {/* Prioridade */}
+                    <div>
+                      <Label>Prioridade</Label>
+                      <div>
+                        <Button>Baixa</Button>
+                        <Button>Média</Button>
+                        <Button>Alta</Button>
+                        <Button>
+                          {" "}
+                          <AlertTriangle />
+                          Crítica
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Datas */}
+                    <div>
+                      <div>
+                        <Label>Data Início</Label>
+                        <div>
+                          <Input placeholder="dd/mm/aaaa" />
+                          <CalendarIcon />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                        <Label>Data Fim (Prazo)</Label>
+                        <div>
+                          <Input placeholder="dd/mm/aaaa" />
+                          <CalendarIcon />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <DialogFooter>
+                    <DialogClose asChild>
+                      <Button>Cancelar</Button>
+                    </DialogClose>
+                    <Button>
+                      Criar Tarefa <CheckCircle2 />
+                    </Button>
+                  </DialogFooter>
+                </div>
+              </DialogContent>
+            </Dialog>
           </nav>
         </header>
 
